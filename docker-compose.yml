@@ -1,0 +1,15 @@
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: word-game:latest    # 明確指定映像名稱
+    container_name: wordgame-app-1
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - NODE_ENV=development
+    restart: unless-stopped
