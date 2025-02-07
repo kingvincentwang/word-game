@@ -3,7 +3,8 @@ const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const path = require('path');
-
+const cors = require('cors');
+app.use(cors());
 // 設置靜態文件目錄
 app.use(express.static('public'));
 app.use(express.json());
